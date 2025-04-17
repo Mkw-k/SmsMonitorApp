@@ -8,13 +8,19 @@ buildscript {
         kotlinVersion = "2.0.21"
     }
     repositories {
+        maven { url "https://dl.bintray.com/transistorsoft/maven" }
+        maven { url "https://jitpack.io" }
         google()
         mavenCentral()
+
+        // [required] background_fetch
+        maven { url "${project(':background_fetch').projectDir}/libs" }
     }
     dependencies {
         classpath("com.android.tools.build:gradle")
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+
     }
 }
 
