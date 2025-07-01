@@ -9,15 +9,17 @@ import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
+import com.smsreceiverapp.SmsReceiverPackage;
 
 class MainApplication : Application(), ReactApplication {
 
   override val reactNativeHost: ReactNativeHost =
       object : DefaultReactNativeHost(this) {
-        override fun getPackages(): List<ReactPackage> =
+
+          override fun getPackages(): List<ReactPackage> =
             PackageList(this).packages.apply {
               // Packages that cannot be autolinked yet can be added manually here, for example:
-              // add(MyReactNativePackage())
+                add(SmsReceiverPackage())  // 네이티브 모듈 패키지 추가
             }
 
         override fun getJSMainModuleName(): String = "index"
@@ -35,4 +37,6 @@ class MainApplication : Application(), ReactApplication {
     super.onCreate()
     loadReactNative(this)
   }
+
+
 }
